@@ -1,0 +1,16 @@
+version: '2.3'
+
+services:
+  duckietownsim:
+    image: duckietownsim
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    network_mode: host
+    command: bash
+    privileged: true
+    tty: true
+    stdin_open: true
+    environment:
+      - "PYTHONUNBUFFERED=1"
+      - DISPLAY=$DISPLAY
+      - QT_X11_NO_MITSHM=1
